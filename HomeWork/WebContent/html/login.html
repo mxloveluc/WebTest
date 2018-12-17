@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<!-- 页面相对路径和绝对路径
+		使用相对路径  login    ../login
+		使用绝对路径  /HomeWork/login
+	 -->
+
+	<!-- 编写登录界面 -->
+	<h1>欢迎来到our system！ </h1>
+	<form action="/HomeWork/login" method="post">
+		<!-- name属性一定要有，后面servlet通过name属性来获取参数 -->
+		用户名：<input id="username" type="text" name="username" /><br/>
+		密码：<input type="password" name="password"/><br/>
+		<input type="submit" value="提交">
+	</form>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>欢迎注册our system！ </h1>
+	<form action="/HomeWork/register" method="post">
+		<!-- name属性一定要有，后面servlet通过name属性来获取参数 -->
+		用户名：<input id="username" type="text" name="username" /> <span id="validateusername"></span><br/>
+		密码：<input type="password" name="password"/><br/>
+		<input type="submit" value="注册">
+	</form>
+	
+		
+	<script type="text/javascript" src="/HomeWork/js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="/HomeWork/js/jquery.validate.min.js"></script>
+	
+	<script type="text/javascript">
+		$(function(){
+			// 失去焦点事件
+			$("#username").blur(function(){
+				// ajax参数用json形式传递
+				$.ajax({
+					// 请求地址
+					url:"/HomeWork/validate",
+					// 默认以json格式发送数据
+					data: {
+						name:$("#username").val()
+					},
+					// 请求方式
+					type:"post",
+					// 请求成功，返回一个success回调
+					success:function(result) {
+						// result是servlet resp里面设置的内容
+						$("#validateusername").text(result);
+					}
+					
+				});
+			});
+		});
+	</script>
+</body>
+</html>
